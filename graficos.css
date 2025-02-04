@@ -1,0 +1,61 @@
+.grafico {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow:0 4px 8px rgb(0, 0, 1);
+}
+
+
+.barras {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 300px;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    padding-left: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+
+.barras::before {
+    content: "Game";
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    transform: rotate(-90deg);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.barra {
+    width: 60px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+}
+
+
+.barra.barra1 { height: 5px; }
+.barra.barra2 { height: 1px; } 
+.barra.barra3 { height: 1px; } 
+
+
+.etiqueta {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+.barra:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
