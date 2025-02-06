@@ -17,7 +17,7 @@
                 $valor1 = $num2 + $num1;
                 $mostrar2 = true;
             } else if ($_POST["formulario"] == "texto") {
-                $saludo = "hola mundo";
+                $saludo = "hola mundo2";
                 $mostrar = true;
             }
         }
