@@ -14,6 +14,9 @@
         if (!isset($_SESSION['registros'])) {
             $_SESSION['registros'] = [];
         }
+        if (isset($_POST['limpiar'])) {
+            unset($_SESSION['registros']);
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($_POST["formulario"] == "suma") {
                 $num1 = $_POST["num1"] ?? 0;
@@ -35,6 +38,8 @@
                     'tel' => $_POST["tel"] ?? "",
                 ];
                 $_SESSION['registros'][] = $registro;
+            }else{
+                
             }
         }
         ?>
@@ -101,6 +106,8 @@
                     <input type="hidden" name="formulario" value="registro">
                     <button type="submit">Registrar</button>
                 </form>
+                <form method="post"><button type="submit"name="limpiar" id>Eliminar datos</button>
+            </form>
                 <table class="table-estilo-2">
                     <thead>
                         <tr>
@@ -113,11 +120,11 @@
                             <th>Numero telefonico</th>
                         </tr>
                     </thead>
+                    <?php $acumulador=1 ?>
                     <?php foreach ($_SESSION['registros'] as $registro): ?>
                         <tr>
-                            <td></td>
-
-
+                            <td><?php echo $acumulador ++; ?></td>
+                                         
                             <td><?php echo htmlspecialchars($registro['nombre1']); ?></td>
                             <td><?php echo htmlspecialchars($registro['nombre2']); ?></td>
                             <td><?php echo htmlspecialchars($registro['apellido1']); ?></td>
