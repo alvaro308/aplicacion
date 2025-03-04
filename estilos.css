@@ -113,7 +113,7 @@ th , td {
      min-height: 200px;
 }
 .panel-left{
-    background-color: #e7f3ff;
+    background-color: #53a9ff;
     justify-content:center;
 }
 .panel-center{
@@ -210,6 +210,8 @@ button{
     cursor: pointer;
     border-radius: 5px;
     transition: backround-color 0.3s ease;
+    box-shadow:  0 12px 8px rgba(0, 0, 0, 0.2);
+
 }
 
 button:hover{
@@ -240,4 +242,66 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="number"]:focus,in
     font-size: 16px;
     color: #333;
     text-align: center; 
+  }
+
+  .calculadora {
+    width: 250px;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin-bottom: 10px;
+
+  }
+
+  .botones {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 5px;
+  }
+
+  .botones button{
+    height: 40px;
+    font-size: 18px;
+    width: 18px;
+    background-color: #007BFF;
+  }
+  .calculadora input {
+    width: 85%;
+    height: 40px;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  .botones button:hover{
+   background-color: #bbb;
+  }
+
+  .botones button:nth-child(4),
+  .botones button:nth-child(8),
+  .botones button:nth-child(12),
+  .botones button:nth-child(16)
+  {
+   background-color: #ff9800;
+  }
+  .botones button:nth-child(14){
+    background-color: #ff3232;
+  }
+  
+  .botones button:nth-child(15){
+    background-color: #58dc00c7;
+  }
+  
+  .botones button:nth-child(4):hover,
+  .botones button:nth-child(8):hover,
+  .botones button:nth-child(12):hover,
+  .botones button:nth-child(16):hover
+  {
+   background-color: #fea826;
+  }
+
+  .botones button:nth-child(14):hover{
+    background-color: #fb5c5c;
+  }
+
+  .botones button:nth-child(15):hover{
+    background-color: #75ff1acd;
   }

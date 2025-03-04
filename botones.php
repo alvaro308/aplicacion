@@ -9,6 +9,7 @@
         $valor1 = 0;
         $num1 = 0;
         $num2 = 0;
+        $num3 = 0;
         $saludo = "";
         $mostrar = false;
         if (!isset($_SESSION['registros'])) {
@@ -16,19 +17,20 @@
         }
         if (isset($_POST['limpiar'])) {
             unset($_SESSION['registros']);
+            header("location:".$_SERVER ['PHP_SELF']);
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($_POST["formulario"] == "suma") {
                 $num1 = $_POST["num1"] ?? 0;
                 $num2 = $_POST["num2"] ?? 0;
-                $valor1 = $num2 + $num1;
+                $num3 = $_POST["num3"] ?? 0;
+                $valor1  = ($num2 + $num1 + $num3 ) ;
                 $mostrar2 = true;
-                echo "<script>alert('la suma se registro correctamente!');</script>";
-            } else if ($_POST["formulario"] == "texto") {
+            }else if ($_POST["formulario"] == "texto") {
                 $saludo = "hola mundo3";
                 $mostrar = true;
-            } else if ($_POST["formulario"] == "registro") {
-                echo "<script>alert('Registro guardado correctamente!');</script>";
+            }else if ($_POST["formulario"] == "registro") {
+      
                 $registro = [
                     'nombre1' => $_POST["nombre1"] ?? "",
                     'nombre2' => $_POST["nombre2"] ?? "",
@@ -38,9 +40,7 @@
                     'tel' => $_POST["tel"] ?? "",
                 ];
                 $_SESSION['registros'][] = $registro;
-            }else{
-                
-            }
+            }else{}
         }
         ?>
     </head>
@@ -64,28 +64,7 @@
         <?php include 'header.php'; ?>
         <div class="container">
             <div class="panel panel-left">
-                <form method="post">
-                    <h4>funcion saludar</h4>
-                    <INput type="" name="formulario" value="texto"></INput>
-                    <button type="submit">saludar</button>
-
-                </form>
-                <br>
-                <?php if ($mostrar): ?>
-                    <label class="label1">
-                        <?php echo $saludo; ?>
-
-                    </label>
-                <?php endif; ?>
-            </div>
-            <div class="panel panel-right">
-                <h4>cambiar el fondo de pantalla</h4>
-                <button class="rojo" onclick="cambiarFondo('#ff3131')">Rojo</button>
-                <button class="azul" onclick="cambiarFondo('#00f3ff')">Azul</button>
-                <button class="verde" onclick="cambiarFondo('#b9ff00')">Verde</button>
-            </div>
-            <div class="panel panel-left">
-                <form method="post">
+            <form method="post">
                     <h4>Formulario de Registro</h4>
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre1" id="nombre1" placeholder="ingrese su nombre" required>
@@ -104,10 +83,14 @@
                     <br>
                     <br>
                     <input type="hidden" name="formulario" value="registro">
+                    <div style="display: flex; gap: 40%">
+
                     <button type="submit">Registrar</button>
                 </form>
                 <form method="post"><button type="submit"name="limpiar" id>Eliminar datos</button>
             </form>
+            </div>
+            <br>
                 <table class="table-estilo-2">
                     <thead>
                         <tr>
@@ -124,7 +107,7 @@
                     <?php foreach ($_SESSION['registros'] as $registro): ?>
                         <tr>
                             <td><?php echo $acumulador ++; ?></td>
-                                         
+
                             <td><?php echo htmlspecialchars($registro['nombre1']); ?></td>
                             <td><?php echo htmlspecialchars($registro['nombre2']); ?></td>
                             <td><?php echo htmlspecialchars($registro['apellido1']); ?></td>
@@ -135,15 +118,71 @@
                     <?php endforeach; ?>
                 </table>
             </div>
+            <div class="panel panel-right">
+                <h4>cambiar el fondo de pantalla</h4>
+                <button class="rojo" onclick="cambiarFondo('#ff3131')">Rojo</button>
+                <button class="azul" onclick="cambiarFondo('#00f3ff')">Azul</button>
+                <button class="verde" onclick="cambiarFondo('#b9ff00')">Verde</button>
+                <button class="blanco" onclick="cambiarFondo('#ffffff')">blanco</button>
+            </div>
+           
             <div class="panel panel-left">
                 <h4>
+                   calculadora
+                </h4>
+    <div class="calculadora">
+    
+                  <input type="text" id="pantalla"readonly>
+                  <br>
+                  <br>
+                  <div class="botones">
+                  <button onclick="agregarValor('7')">7</button>
+                  <button onclick="agregarValor('8')">8</button>
+                  <button onclick="agregarValor('9')">9</button>
+                  <button onclick="agregarValor('/')">/</button>
+                  <button onclick="agregarValor('4')">4</button>
+                  <button onclick="agregarValor('5')">5</button>
+                  <button onclick="agregarValor('6')">6</button>
+                  <button onclick="agregarValor('*')">*</button>
+                  <button onclick="agregarValor('1')">1</button>
+                  <button onclick="agregarValor('2')">2</button>
+                  <button onclick="agregarValor('3')">3</button>
+                  <button onclick="agregarValor('-')">-</button>
+                  <button onclick="agregarValor('0')">0</button>
+                  <button onclick="limpiarPantalla()">C</button>
+                  <button onclick="calcular()">=</button>
+                  <button onclick="agregarValor('+')">+</button>                
+                </div>
+        </div>
+    </div>
+    </div>
+        <div class="container">
+            <div class="panel panel-left">
+            <form method="post">
+                    <h4>funcion saludar</h4>
+                    <INput type="hidden" name="formulario" value="texto"></INput>
+                    <button type="submit">saludar</button>
+
+                </form>
+                <br>
+                <?php if ($mostrar): ?>
+                    <label class="label1">
+                        <?php echo $saludo; ?>
+
+                    </label>
+                <?php endif; ?>
+            </div>
+            <div class="panel panel-left">
+            <h4>
                     suma de numeros
                 </h4>
                 <form method="post">
-                    <input type="" name="formulario" value="suma">
+                    <input type="hidden" name="formulario" value="suma">
                     numero 1:<input type="double" name="num1" id="num1" placeholder="3" required>
                     <br>
                     numero 2:<input type="double" name="num2" id="num2" placeholder="5" required>
+                    <br>
+                    numero 3:<input type="double" name="num3" id="num3" placeholder="8" required>
                     <button type="submit">
                         sumar
                     </button>
@@ -151,20 +190,12 @@
                 <br>
                 <?php if ($mostrar2): ?>
                     <label class="label1">
-                        <?php echo $num1 + $num2; ?>
+                        <?php echo $valor1/2; ?>
 
                     </label>
                 <?php endif; ?>
             </div>
             <br>
-        </div>
-        <div class="container">
-            <div class="panel panel-left">
-
-            </div>
-            <div class="panel panel-left">
-            </div>
-            <div class="panel panel-left">
             </div>
             <div class="panel panel-left">
             </div>
@@ -174,3 +205,20 @@
     </body>
 
     </html>
+    <script>
+        function agregarValor(valor){
+            document.getElementById("pantalla").value+=valor ;
+        }
+        function limpiarPantalla(){
+            document.getElementById("pantalla").value="" ;
+        }
+        function calcular(){
+            try {
+                document.getElementById("pantalla").value=eval(document.getElementById("pantalla").value)   
+            } catch (error) {
+               alert("error en la expresion") 
+               document.getElementById("pantalla").value="" ;
+            }
+  
+        }
+    </script>
