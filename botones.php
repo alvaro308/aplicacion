@@ -151,7 +151,8 @@
                   <button onclick="agregarValor('0')">0</button>
                   <button onclick="limpiarPantalla()">C</button>
                   <button onclick="calcular()">=</button>
-                  <button onclick="agregarValor('+')">+</button>                
+                  <button onclick="agregarValor('+')">+</button>     
+                  <button onclick="borrarCaracter('←')">←</button>           
                 </div>
         </div>
     </div>
@@ -206,8 +207,8 @@
 
     </html>
     <script>
-        function agregarValor(valor){
-            document.getElementById("pantalla").value+=valor ;
+        function agregarValor(numero){
+            document.getElementById("pantalla").value+=numero ;
         }
         function limpiarPantalla(){
             document.getElementById("pantalla").value="" ;
@@ -217,8 +218,13 @@
                 document.getElementById("pantalla").value=eval(document.getElementById("pantalla").value)   
             } catch (error) {
                alert("error en la expresion") 
-               document.getElementById("pantalla").value="" ;
             }
   
         }
+
+        function borrarCaracter(){
+        var pantalla=document.getElementById("pantalla"); 
+        pantalla.value=pantalla.value.slice(0,-1) ;  
+        }
+    
     </script>

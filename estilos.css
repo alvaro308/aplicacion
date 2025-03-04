@@ -305,3 +305,11 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="number"]:focus,in
   .botones button:nth-child(15):hover{
     background-color: #75ff1acd;
   }
+  .botones button:nth-child(17):hover{
+    background-color: #525151c7;
+  }
+
+  .botones button:nth-child(17){
+    background-color: #333;
+   }
+ 
