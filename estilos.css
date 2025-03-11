@@ -113,7 +113,7 @@ th , td {
      min-height: 200px;
 }
 .panel-left{
-    background-color: #53a9ff;
+background-color: #1073de;
     justify-content:center;
 }
 .panel-center{
@@ -312,4 +312,15 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="number"]:focus,in
   .botones button:nth-child(17){
     background-color: #333;
    }
- 
+ .form{
+    width: 400px;
+    background-color: #007bff;
+    opacity: 0.94;
+    border-radius: 5px;
+
+ } 
+ .panel-left-2{
+    background-image:url("playa.jpg");
+    background-size: cover;
+    justify-content:center;
+}
