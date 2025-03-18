@@ -324,3 +324,21 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="number"]:focus,in
     background-size: cover;
     justify-content:center;
 }
+
+    .panel-left-3{
+        background-image:url("havana.jpg");
+        background-size: cover;
+        justify-content:center;
+}
+
+ .panel-contacto {
+    background-image:url("telefono.jpg");
+    background-size: cover;
+    justify-content:flex-end;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.panel-contacto-h1{
+      background-color: #ccc;
+}

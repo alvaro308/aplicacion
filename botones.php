@@ -63,7 +63,7 @@
         <?php include 'menu.php'; ?>
         <?php include 'header.php'; ?>
         <div class="container">
-            <div class="panel panel-left">
+            <div class="panel panel-left-3">
             <form method="post">
                     <h4>Formulario de Registro</h4>
                     <label for="nombre">Nombre</label>
