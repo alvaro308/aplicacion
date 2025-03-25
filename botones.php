@@ -39,6 +39,7 @@
                     'correo_electronico' => $_POST["correo_electronico"] ?? "",
                     'color_de_ojos' => $_POST["color_de_ojos"] ?? "",
                     'edad' => $_POST["edad"] ?? "",
+                    'consola' => $_POST["consola"] ?? "",
                     'tel' => $_POST["tel"] ?? "",
                 ];
                 $_SESSION['registros'][] = $registro;
@@ -101,9 +102,18 @@
                     <option value="seleccione">ingrece su edad</option>
         <?php 
         for($i=1;$i<=100;$i++){
-           echo "<option value=\$i\">$i</option>" ; 
+           echo "<option value=\"$i\">$i</option>" ; 
         } 
         ?>
+                    </select>
+                    <br>
+                    <label for="consola">consola</label>
+                    <br>
+                    <select name="consola" id="consola">
+                    <option value="seleccione la consola">seleccione consola</option>
+                    <option value="nintendo">nintendo</option>
+                    <option value="xbox">xbox</option>
+                    <option value="playstation">playstation</option>
                     </select>
                     <br>
                     <label for="numero telefonico">Número Telefónico</label>
@@ -130,6 +140,7 @@
                         <th>Correo electronico</th>
                         <th>color de ojos</th>
                         <th>edad</th>
+                        <th>consola</th>
                         <th>numero telefonico</th>
                     </tr>
                 </thead>
@@ -145,6 +156,7 @@
                         <td><?php echo htmlspecialchars($registro['correo_electronico']); ?></td>
                         <td><?php echo htmlspecialchars($registro['color_de_ojos']); ?></td>
                         <td><?php echo htmlspecialchars($registro['edad']); ?></td>
+                        <td><?php echo htmlspecialchars($registro['consola']); ?></td>
                         <td><?php echo htmlspecialchars($registro['tel']); ?></td>
                     </tr>
                 <?php endforeach; ?>

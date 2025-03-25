@@ -80,6 +80,7 @@ table{
 .table-estilo-2 td {
     border: 1px solid #28a745;
     text-align: center; /* Alineación diferente */
+    color: #333;
 }
 .table-estilo-2 tr:nth-child(even) {
     background-color: #dff0d8;
