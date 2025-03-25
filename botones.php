@@ -37,6 +37,8 @@
                     'apellido1' => $_POST["apellido1"] ?? "",
                     'apellido2' => $_POST["apellido2"] ?? "",
                     'correo_electronico' => $_POST["correo_electronico"] ?? "",
+                    'color_de_ojos' => $_POST["color_de_ojos"] ?? "",
+                    'edad' => $_POST["edad"] ?? "",
                     'tel' => $_POST["tel"] ?? "",
                 ];
                 $_SESSION['registros'][] = $registro;
@@ -141,6 +143,8 @@
                         <td><?php echo htmlspecialchars($registro['apellido1']); ?></td>
                         <td><?php echo htmlspecialchars($registro['apellido2']); ?></td>
                         <td><?php echo htmlspecialchars($registro['correo_electronico']); ?></td>
+                        <td><?php echo htmlspecialchars($registro['color_de_ojos']); ?></td>
+                        <td><?php echo htmlspecialchars($registro['edad']); ?></td>
                         <td><?php echo htmlspecialchars($registro['tel']); ?></td>
                     </tr>
                 <?php endforeach; ?>
