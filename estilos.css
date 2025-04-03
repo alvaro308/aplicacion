@@ -97,6 +97,7 @@ th , td {
 }
 .container{
     margin-left: 200px;
+    margin-right: 0px;
     display:flex;
     height: 100vh;
     justify-content: space-between;
@@ -228,7 +229,7 @@ button{
 button:hover{
 background-color: #007ca9;
 }
-input[type="text"],input[type="email"],input[type="number"],input[type="double"]{
+input[type="text"],input[type="email"],input[type="number"],input[type="double"],input[type="password"]{
     width: 90%;
     justify-content:center;
     padding: 10px 15px;
@@ -238,12 +239,12 @@ input[type="text"],input[type="email"],input[type="number"],input[type="double"]
     transition: all 2.0s ease-in-out; 
     color: #0056b3;    
 }
-input[type="text"]:focus,input[type="email"]:focus,input[type="number"]:focus,input[type="double"]:focus {
+input[type="text"]:focus,input[type="email"]:focus,input[type="number"]:focus,input[type="double"]:focus,input[type="password"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
   }
   
-  input[type="text"]::placeholder,input[type="email"]::placeholder,input[type="number"]::placeholder,input[type="double"]::placeholder {
+  input[type="text"]::placeholder,input[type="email"]::placeholder,input[type="number"]::placeholder,input[type="double"]::placeholder,input[type="password"]::placeholder {
     color: #888;
     font-style: italic;
   }
@@ -342,6 +343,9 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="number"]:focus,in
         background-size: cover;
         justify-content:center;
         color: white;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
 }
 
 .panel-left-3 label{
@@ -387,3 +391,10 @@ select {
   }
   
   
+.login{
+        background-image:url("playa3.jpg");
+        background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}

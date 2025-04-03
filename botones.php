@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<o>
+
 
     <head>
         <link rel="stylesheet" href="estilos.css">
@@ -143,6 +143,7 @@
                         <th>consola</th>
                         <th>numero telefonico</th>
                     </tr>
+
                 </thead>
                 <?php $acumulador = 1 ?>
                 <?php foreach ($_SESSION['registros'] as $registro): ?>
