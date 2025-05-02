@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Formulario de Registro</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
-<body>
+<body>                                                                                                                                                                                                                                                            
     <div class="login">
         <form method="post">
             <input type="email" placeholder="Ingrese email" name="email" required>
@@ -52,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" placeholder="Ingrese su contraseña" name="pass" required>
             <br><br>
             <button type="submit">Registrar</button>
+            <a href="login.php"><button type="button">ir a login</button> </a>
         </form>
 
         <br><br>

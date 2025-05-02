@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="estilos.css">
         <?php
         $mostrar2 = false;
-        session_start();
         $valor1 = 0;
         $num1 = 0;
         $num2 = 0;

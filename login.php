@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <head>
 <?php     
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_input = $_POST['username'];
-    $pass_input = $_POST['pass'];
+session_start();
 
-    if (isset($_SESSION['user_reg']) && isset($_SESSION['pass_reg'])) {
-        if ($user_input === $_SESSION['user_reg'] && $pass_input === $_SESSION['pass_reg']) {
+$nombre_usuario_logueado = $_SESSION['usuario_actual']['username'] ?? null;
+$error = '';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {//ESCUCHA y se ejecuta cuando existe POST de cualquier formulario
+$user_input = $_POST ['username'] ?? '' ;//asigna el valor que viene en la variable username que a su ves viene dentro del post //En caso de venir vacio lo asigna vacio
+ $pass_input = $_POST ['pass'] ?? '' ;
+
+$usuario_encontrado =false;
+
+
+if(isset($_SESSION['usuarios_temporales'])){ //valida si existen valores en usuarios temporales
+    foreach($_SESSION['usuarios_temporales'] as $usuario){
+        if($usuario['username']===$user_input && $usuario['pass']===$pass_input){//valida si el username y el password existe dentro de la lista 
+            $usuario_encontrado = true;
             $_SESSION['logged_in'] = true;
-            header("Location: botones.php");
-            exit();
-        } else {
-            $error = "Usuario o contraseña incorrectos.";
+                $_SESSION['usuario_actual'] = $usuario;
+            header(header:"location: botones.php") ; //si encuantra el usuario y clave dentro de la lista envia a botones.php
+exit();
         }
-    } else {
-        $error = "Debe registrarse primero.";
     }
+
 }
+if($usuario_encontrado==false){
+    $error = "usuarios no encontrados";
+}
+}
+
 ?>
 </head>
     <body>
@@ -24,15 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 <link rel="stylesheet" href="estilos.css">
 <div class="login">
-    <form> 
-        
-        <input type="text" placeholder="Ingrece el username">
+    <form method="POST"> 
+    <?php if (!empty($error)): ?>
+                <p style="color: red; text-align: center; text-shadow: 3px 3px 3px white;"><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
+        <input type="text" placeholder="Ingrece el username" name="username">
         <br>
         <br>
-        <input type="password" placeholder="ingrece su contraceña">
+        <input type="password" placeholder="ingrece su contraceña" name="pass">
         <br>
         <br>
         <button type="submit">login</button>
+        <a href="registros.php"> <button type="button">ir a registros</button> </a>
     </form>
 
 
